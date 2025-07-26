@@ -11,6 +11,9 @@
  [![Vite](https://img.shields.io/badge/Vite-5.4.1-purple)](https://vitejs.dev/) 
  [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.11-blue)](https://tailwindcss.com/) 
  [![Google Generative AI](https://img.shields.io/badge/Google%20Generative%20AI-1.2.22-green)](https://ai.google.dev/) 
+ [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/) 
+ 
+ **[🔗 Live Demo: Resume Fit CodeNex](https://resumefit.codenex.dev/)** 
  
  </div>
 
@@ -35,13 +38,15 @@ Resume Fit CodeNex evaluates resumes on four key pillars (total 100 points):
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: React, TypeScript, Vite, Tailwind CSS
-- **UI Components**: Radix UI, Lucide React icons
-- **Routing**: React Router
-- **State Management**: React Context API
-- **AI Integration**: Google Generative AI (Gemini)
+- **Frontend**: React 18, TypeScript 5, Vite 5, Tailwind CSS 3
+- **UI Components**: Radix UI, Lucide React icons, Sonner for toasts
+- **Routing**: React Router 6
+- **State Management**: React Context API, TanStack React Query
+- **AI Integration**: Google Generative AI (Gemini) via AI SDK
 - **Form Handling**: React Hook Form, Zod validation
 - **File Parsing**: PDF-parse, Mammoth (for DOCX)
+- **Charts & Visualization**: Recharts
+- **Deployment**: Vercel with GitHub Actions
 
 ## 🔧 Getting Started
 
@@ -85,6 +90,32 @@ npm run build
 5. **Refine Resume**: Use the AI-powered refinement tool to optimize your resume
 6. **Compare Results**: View a side-by-side comparison of your original and refined resumes
 
+## 🎬 Demo
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=demo-video-id" target="_blank">
+    <img src="https://img.youtube.com/vi/demo-video-id/0.jpg" alt="Resume Fit Demo Video" width="600"/>
+  </a>
+  <p>Click the image above to watch the demo video</p>
+</div>
+
+> **Note:** Replace `demo-video-id` in both the link and image URL with your actual YouTube video ID once you've created and uploaded your demo video.
+
+## 🚀 Deployment
+
+Resume Fit CodeNex is deployed on [Vercel](https://vercel.com/), a cloud platform for static sites and Serverless Functions. The application is automatically deployed from the main branch using GitHub Actions workflow with Vercel CLI, ensuring that the latest changes are always available on the live site.
+
+The deployment process includes:
+
+- Automatic builds triggered by commits to the main branch
+- Vercel CLI integration for production deployments
+- Environment variable management through Vercel secrets
+- Optimized build and deployment pipeline
+
+The GitHub Actions workflow handles the entire deployment process, from pulling environment information to building and deploying the project artifacts.
+
+You can access the deployed application at [https://resume-fit-codenex.vercel.app/](https://resume-fit-codenex.vercel.app/)
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -109,3 +140,4 @@ Nikunj Khitha
 - [Radix UI](https://www.radix-ui.com/) for accessible UI components
 - [Tailwind CSS](https://tailwindcss.com/) for the styling framework
 - [Vite](https://vitejs.dev/) for the fast development experience
+- [Vercel](https://vercel.com/) for hosting and deployment infrastructure
