@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ResumeFit Design System - Professional AI-powered résumé analysis */
+
+@layer base {
+  :root {
+    /* Background gradients */
+    --background: 240 100% 99%;
+    --background-secondary: 245 25% 97%;
+    --foreground: 225 15% 15%;
+
+    /* Professional blue-purple theme */
+    --primary: 237 85% 64%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 240 100% 95%;
+    --primary-glow: 237 85% 80%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 225 15% 15%;
+    --card-secondary: 240 25% 98%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 15% 15%;
+
+    /* Secondary colors */
+    --secondary: 240 15% 95%;
+    --secondary-foreground: 225 15% 25%;
+
+    --muted: 240 15% 95%;
+    --muted-foreground: 225 8% 45%;
+
+    --accent: 237 85% 96%;
+    --accent-foreground: 237 85% 30%;
+
+    /* Status colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 240 15% 90%;
+    --input: 240 15% 94%;
+    --ring: 237 85% 64%;
+
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(237 85% 64%), hsl(250 85% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 25% 98%), hsl(245 25% 96%));
+    --gradient-accent: linear-gradient(135deg, hsl(237 85% 96%), hsl(240 100% 98%));
+    
+    /* Shadows */
+    --shadow-soft: 0 2px 20px -5px hsl(237 85% 64% / 0.15);
+    --shadow-medium: 0 8px 30px -10px hsl(237 85% 64% / 0.25);
+    --shadow-strong: 0 20px 40px -15px hsl(237 85% 64% / 0.35);
+
+    /* Animation easing */
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark theme backgrounds */
+    --background: 225 15% 8%;
+    --background-secondary: 225 15% 10%;
+    --foreground: 240 25% 95%;
+
+    /* Professional dark blue-purple theme */
+    --primary: 237 85% 70%;
+    --primary-foreground: 225 15% 8%;
+    --primary-light: 237 50% 15%;
+    --primary-glow: 237 85% 80%;
+
+    /* Dark card system */
+    --card: 225 15% 12%;
+    --card-foreground: 240 25% 95%;
+    --card-secondary: 225 15% 14%;
+
+    --popover: 225 15% 12%;
+    --popover-foreground: 240 25% 95%;
+
+    /* Dark secondary colors */
+    --secondary: 225 15% 16%;
+    --secondary-foreground: 240 25% 90%;
+
+    --muted: 225 15% 16%;
+    --muted-foreground: 225 8% 60%;
+
+    --accent: 225 15% 16%;
+    --accent-foreground: 237 85% 80%;
+
+    /* Dark status colors */
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 60%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Dark borders and inputs */
+    --border: 225 15% 20%;
+    --input: 225 15% 18%;
+    --ring: 237 85% 70%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(237 85% 70%), hsl(250 85% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(225 15% 12%), hsl(225 15% 14%));
+    --gradient-accent: linear-gradient(135deg, hsl(225 15% 16%), hsl(237 50% 15%));
+    
+    /* Dark shadows */
+    --shadow-soft: 0 2px 20px -5px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 30px -10px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 20px 40px -15px hsl(0 0% 0% / 0.5);
+
+    /* Sidebar dark theme */
+    --sidebar-background: 225 15% 8%;
+    --sidebar-foreground: 240 25% 90%;
+    --sidebar-primary: 237 85% 70%;
+    --sidebar-primary-foreground: 225 15% 8%;
+    --sidebar-accent: 225 15% 14%;
+    --sidebar-accent-foreground: 240 25% 90%;
+    --sidebar-border: 225 15% 20%;
+    --sidebar-ring: 237 85% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
