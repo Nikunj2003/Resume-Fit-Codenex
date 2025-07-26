@@ -1,0 +1,57 @@
+name: CI / CD to Vercel
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Cache Node modules
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Build with Vite
+      - name: Build
+        run: npm run build
+
+      # 5. Deploy to Vercel
+      - name: Vercel Deploy
+        uses: amondnet/vercel-action@v21
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: .
+          alias-domains: resume-fit.example.com
+
+      # 6. Post-deployment status
+      - name: Comment Deployment URL
+        uses: actions/github-script@v7
+        if: success()
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { output } = steps.vercel.outputs;
+            const url = output.preview_url || output.url;
+            await github.issues.createComment({
+              issue_number: context.payload.pull_request?.number || 1,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `✅ Deployed to: ${url}`
+            });
