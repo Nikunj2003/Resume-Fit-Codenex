@@ -114,8 +114,6 @@ The deployment process includes:
 
 The GitHub Actions workflow handles the entire deployment process, from pulling environment information to building and deploying the project artifacts.
 
-You can access the deployed application at [https://resume-fit-codenex.vercel.app/](https://resume-fit-codenex.vercel.app/)
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
