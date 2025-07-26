@@ -1,4 +1,4 @@
-name: CI / CD to Vercel
+name: CI/CD to Vercel
 
 on:
   push:
@@ -8,7 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
+
+ steps:
       # 1. Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -30,25 +31,25 @@ jobs:
       - name: Build
         run: npm run build
 
-      # 5. Deploy to Vercel
-      - name: Vercel Deploy
+      # 5. Deploy & alias on Vercel
+      - name: Vercel Deploy & Alias
         uses: amondnet/vercel-action@v25
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: .
-          alias-domains: resume-fit.example.com
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}           # Vercel Personal/Team token
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}         # Org ID or Team ID
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # Vercel Project ID
+          scope: ${{ secrets.VERCEL_ORG_ID }}                 # Ensure correct team context
+          alias-domains: resume-fit.example.com               # Custom domain to alias
+          vercel-args: '--yes'                                # Auto-confirm prompts
 
-      # 6. Post-deployment status
+      # 6. Comment Deployment URL back to PR/Issue
       - name: Comment Deployment URL
-        uses: actions/github-script@v7
         if: success()
+        uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const { output } = steps.vercel.outputs;
-            const url = output.preview_url || output.url;
+            const url = steps.vercel-deploy-and-alias.outputs.preview-url || steps.vercel-deploy-and-alias.outputs.url;
             await github.issues.createComment({
               issue_number: context.payload.pull_request?.number || 1,
               owner: context.repo.owner,
