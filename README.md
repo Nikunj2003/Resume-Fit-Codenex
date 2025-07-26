@@ -1,18 +1,18 @@
 # Resume Fit by Nikunj
 
-<div align="center">
-
-![Resume Fit by Nikunj Logo](public/logo.png)
-
-An AI-powered resume analysis and optimization tool to help job seekers match their resumes to specific job descriptions.
-
-[![React](https://img.shields.io/badge/React-18.3.1-blue)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.4.1-purple)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.11-blue)](https://tailwindcss.com/)
-[![Google Generative AI](https://img.shields.io/badge/Google%20Generative%20AI-1.2.22-green)](https://ai.google.dev/)
-
-</div>
+<div align="center"> 
+ 
+ <img src="public/logo.png" alt="Resume Fit by Nikunj Logo" width="400"/>
+ 
+ An AI-powered resume analysis and optimization tool to help job seekers match their resumes to specific job descriptions. 
+ 
+ [![React](https://img.shields.io/badge/React-18.3.1-blue)](https://reactjs.org/) 
+ [![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue)](https://www.typescriptlang.org/) 
+ [![Vite](https://img.shields.io/badge/Vite-5.4.1-purple)](https://vitejs.dev/) 
+ [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4.11-blue)](https://tailwindcss.com/) 
+ [![Google Generative AI](https://img.shields.io/badge/Google%20Generative%20AI-1.2.22-green)](https://ai.google.dev/) 
+ 
+ </div>
 
 ## 🚀 Features
 
