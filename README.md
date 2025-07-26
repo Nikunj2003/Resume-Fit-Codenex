@@ -1,8 +1,8 @@
-# Resume Fit by Nikunj
+# Resume Fit CodeNex
 
 <div align="center"> 
  
- <img src="public/logo.png" alt="Resume Fit by Nikunj Logo" width="400"/>
+ <img src="public/logo.png" alt="Resume Fit CodeNex Logo" width="400"/>
  
  An AI-powered resume analysis and optimization tool to help job seekers match their resumes to specific job descriptions. 
  
