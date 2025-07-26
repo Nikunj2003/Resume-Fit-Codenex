@@ -90,17 +90,6 @@ npm run build
 5. **Refine Resume**: Use the AI-powered refinement tool to optimize your resume
 6. **Compare Results**: View a side-by-side comparison of your original and refined resumes
 
-## 🎬 Demo
-
-<div align="center">
-  <a href="https://www.youtube.com/watch?v=demo-video-id" target="_blank">
-    <img src="https://img.youtube.com/vi/demo-video-id/0.jpg" alt="Resume Fit Demo Video" width="600"/>
-  </a>
-  <p>Click the image above to watch the demo video</p>
-</div>
-
-> **Note:** Replace `demo-video-id` in both the link and image URL with your actual YouTube video ID once you've created and uploaded your demo video.
-
 ## 🚀 Deployment
 
 Resume Fit CodeNex is deployed on [Vercel](https://vercel.com/), a cloud platform for static sites and Serverless Functions. The application is automatically deployed from the main branch using GitHub Actions workflow with Vercel CLI, ensuring that the latest changes are always available on the live site.
