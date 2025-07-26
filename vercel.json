@@ -1,0 +1,11 @@
+{
+  "name": "resume-fit-codenex",
+  "version": 2,
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
+  ],
+  "github": {
+    "silent": true
+  },
+  "alias": ["resumefit.codenex.dev"]
+}
