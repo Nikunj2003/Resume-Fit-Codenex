@@ -1,58 +1,21 @@
-name: CI/CD to Vercel
-
+name: Vercel Production Deployment
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
     branches:
       - main
-
 jobs:
-  build-and-deploy:
+  Deploy-Production:
     runs-on: ubuntu-latest
-
- steps:
-      # 1. Checkout code
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # 2. Cache Node modules
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
-      # 3. Install dependencies
-      - name: Install dependencies
-        run: npm ci
-
-      # 4. Build with Vite
-      - name: Build
-        run: npm run build
-
-      # 5. Deploy & alias on Vercel
-      - name: Vercel Deploy & Alias
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}           # Vercel Personal/Team token
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}         # Org ID or Team ID
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # Vercel Project ID
-          scope: ${{ secrets.VERCEL_ORG_ID }}                 # Ensure correct team context
-          alias-domains: resume-fit.example.com               # Custom domain to alias
-          vercel-args: '--yes'                                # Auto-confirm prompts
-
-      # 6. Comment Deployment URL back to PR/Issue
-      - name: Comment Deployment URL
-        if: success()
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const url = steps.vercel-deploy-and-alias.outputs.preview-url || steps.vercel-deploy-and-alias.outputs.url;
-            await github.issues.createComment({
-              issue_number: context.payload.pull_request?.number || 1,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `✅ Deployed to: ${url}`
-            });
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
